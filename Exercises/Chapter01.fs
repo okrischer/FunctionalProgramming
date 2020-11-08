@@ -12,6 +12,7 @@ module Chapter01 =
         | 1 -> 1
         | n -> fibonacci (n-1) + fibonacci (n-2)
 
+    // Exercise 1.6
     let rec sum = function
         | (m,0) -> m
         | (m,n) -> m + n + sum (m, n-1)
