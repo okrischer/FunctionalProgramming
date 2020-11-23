@@ -60,3 +60,7 @@ module Chapter02 =
     // Exercise 2.5
     let occInString (str: string, ch: char) : int =
         occFromIth(str, 0, ch)
+
+    // Exercise 2.6
+    let notDivisible d n =
+        n % d <> 0

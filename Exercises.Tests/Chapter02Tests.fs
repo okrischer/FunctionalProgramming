@@ -2,43 +2,44 @@ namespace Exercises.Tests
 
 module Chapter02Tests =
 
+    open FsUnit.Xunit
     open Xunit
     open Exercises.Chapter02
 
     [<Fact>]
     let ``Exercise 2.1`` () =
-        Assert.True (f 24)
-        Assert.True (f 27)
-        Assert.False(f 29)
-        Assert.False(f 30)
+        f 24 |> should be True
+        f 27 |> should be True
+        f 29 |> should not' (be True)
+        f 30 |> should not' (be True)
 
     [<Fact>]
     let ``Exercise 2.1 with pattern matching`` () =
-        Assert.True (f' 24)
-        Assert.True (f' 27)
-        Assert.False(f' 29)
-        Assert.False(f' 30)
+        f' 24 |> should be True
+        f' 27 |> should be True
+        f' 29 |> should not' (be True)
+        f' 30 |> should not' (be True)
 
     [<Fact>]
     let ``Exercise 2.2`` () =
-        Assert.Equal("", pow ("", 0))
-        Assert.Equal("", pow ("", 10))
-        Assert.Equal("", pow ("Test", 0))
-        Assert.Equal("TestTestTest", pow ("Test", 3))
+        pow ("", 0)     |> should equal ""
+        pow ("", 10)    |> should equal ""
+        pow ("Test", 0) |> should equal ""
+        pow ("Test", 3) |> should equal "TestTestTest"
 
     [<Fact>]
     let ``Exercise 2.2 with StringBuilder`` () =
-        Assert.Equal("", pow' ("", 0))
-        Assert.Equal("", pow' ("", 10))
-        Assert.Equal("", pow' ("Test", 0))
-        Assert.Equal("TestTestTest", pow' ("Test", 3))
+        pow' ("", 0)     |> should equal ""
+        pow' ("", 10)    |> should equal ""
+        pow' ("Test", 0) |> should equal ""
+        pow' ("Test", 3) |> should equal "TestTestTest"
 
     [<Fact>]
     let ``Exercise 2.3`` () =
-        Assert.True(isIthChar("Test", 0, 'T'))
-        Assert.True(isIthChar("Test", 3, 't'))
-        Assert.True(isIthChar("Test", 1, 'e'))
-        Assert.False(isIthChar("Test", 2, 'e'))
+        isIthChar("Test", 0, 'T') |> should be True
+        isIthChar("Test", 3, 't') |> should be True
+        isIthChar("Test", 1, 'e') |> should be True
+        isIthChar("Test", 2, 'e') |> should not' (be True)
 
     [<Fact>]
     let ``Exercise 2.4`` () = 
@@ -75,8 +76,13 @@ module Chapter02Tests =
 
     [<Fact>]
     let ``Exercise 2.5`` () = 
-        Assert.Equal(3, occInString("abcabcabc", 'a'))
-        Assert.Equal(3, occInString("abcabcabc", 'b'))
-        Assert.Equal(3, occInString("abcabcabc", 'c'))
-        Assert.Equal(0, occInString("abcabcabc", 'd'))
-        Assert.Equal(0, occInString("", 'a'))
+        occInString("abcabcabc", 'a') |> should equal 3
+        occInString("abcabcabc", 'b') |> should equal 3
+        occInString("abcabcabc", 'c') |> should equal 3
+        occInString("abcabcabc", 'd') |> should equal 0
+        occInString("", 'a')          |> should equal 0
+
+    [<Fact>]
+    let ``Exercise 2.6`` () =
+        notDivisible 2 5 |> should be True
+        notDivisible 3 9 |> should not' (be True)
