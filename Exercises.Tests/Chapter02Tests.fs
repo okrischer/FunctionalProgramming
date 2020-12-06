@@ -43,36 +43,36 @@ module Chapter02Tests =
 
     [<Fact>]
     let ``Exercise 2.4`` () = 
-        Assert.Equal(3, occFromIth("abcabcabc", 0, 'a'))
-        Assert.Equal(2, occFromIth("abcabcabc", 1, 'a'))
-        Assert.Equal(1, occFromIth("abcabcabc", 4, 'a'))
-        Assert.Equal(2, occFromIth("abcabcabc", 4, 'b'))
-        Assert.Equal(1, occFromIth("abcabcabc", 8, 'c'))
-        Assert.Equal(0, occFromIth("abcabcabc", 7, 'a'))
-        Assert.Equal(0, occFromIth("abcabcabc", 0, 'd'))
-        Assert.Equal(0, occFromIth("", 0, 'a'))
+        occFromIth("abcabcabc", 0, 'a') |> should equal 3
+        occFromIth("abcabcabc", 1, 'a') |> should equal 2
+        occFromIth("abcabcabc", 4, 'a') |> should equal 1
+        occFromIth("abcabcabc", 4, 'b') |> should equal 2
+        occFromIth("abcabcabc", 8, 'c') |> should equal 1
+        occFromIth("abcabcabc", 7, 'a') |> should equal 0
+        occFromIth("abcabcabc", 0, 'd') |> should equal 0
+        occFromIth("", 0, 'a') |> should equal 0
 
     [<Fact>]
     let ``Exercise 2.4 with pattern matching`` () = 
-        Assert.Equal(3, occFromIth'("abcabcabc", 0, 'a'))
-        Assert.Equal(2, occFromIth'("abcabcabc", 1, 'a'))
-        Assert.Equal(1, occFromIth'("abcabcabc", 4, 'a'))
-        Assert.Equal(2, occFromIth'("abcabcabc", 4, 'b'))
-        Assert.Equal(1, occFromIth'("abcabcabc", 8, 'c'))
-        Assert.Equal(0, occFromIth'("abcabcabc", 7, 'a'))
-        Assert.Equal(0, occFromIth'("abcabcabc", 0, 'd'))
-        Assert.Equal(0, occFromIth'("", 0, 'a'))
+        occFromIth("abcabcabc", 0, 'a') |> should equal 3
+        occFromIth("abcabcabc", 1, 'a') |> should equal 2
+        occFromIth("abcabcabc", 4, 'a') |> should equal 1
+        occFromIth("abcabcabc", 4, 'b') |> should equal 2
+        occFromIth("abcabcabc", 8, 'c') |> should equal 1
+        occFromIth("abcabcabc", 7, 'a') |> should equal 0
+        occFromIth("abcabcabc", 0, 'd') |> should equal 0
+        occFromIth("", 0, 'a') |> should equal 0
 
     [<Fact>]
     let ``Exercise 2.4 without recursion`` () = 
-        Assert.Equal(3, occFromIth''("abcabcabc", 0, 'a'))
-        Assert.Equal(2, occFromIth''("abcabcabc", 1, 'a'))
-        Assert.Equal(1, occFromIth''("abcabcabc", 4, 'a'))
-        Assert.Equal(2, occFromIth''("abcabcabc", 4, 'b'))
-        Assert.Equal(1, occFromIth''("abcabcabc", 8, 'c'))
-        Assert.Equal(0, occFromIth''("abcabcabc", 7, 'a'))
-        Assert.Equal(0, occFromIth''("abcabcabc", 0, 'd'))
-        Assert.Equal(0, occFromIth''("", 0, 'a'))
+        occFromIth("abcabcabc", 0, 'a') |> should equal 3
+        occFromIth("abcabcabc", 1, 'a') |> should equal 2
+        occFromIth("abcabcabc", 4, 'a') |> should equal 1
+        occFromIth("abcabcabc", 4, 'b') |> should equal 2
+        occFromIth("abcabcabc", 8, 'c') |> should equal 1
+        occFromIth("abcabcabc", 7, 'a') |> should equal 0
+        occFromIth("abcabcabc", 0, 'd') |> should equal 0
+        occFromIth("", 0, 'a') |> should equal 0
 
     [<Fact>]
     let ``Exercise 2.5`` () = 
